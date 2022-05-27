@@ -13,6 +13,8 @@ namespace QuanLyTiemCatTocTamMap
     public partial class form_TinhTien : Form
     {
         public int TongTien = 0;
+        public int GiamGia = 0;
+        public int NewTongTien = 0;
         public form_TinhTien()
         {
             InitializeComponent();
@@ -22,6 +24,7 @@ namespace QuanLyTiemCatTocTamMap
         {
             LoadKieuToc();
             LoadDichVu();
+            LoadUuDai();
         }
         public void LoadKieuToc()
         {
@@ -93,6 +96,7 @@ namespace QuanLyTiemCatTocTamMap
                 listBox_DanhSachDaChon.Items.Add(listBox_DanhSachDichVu.SelectedItem.ToString());
                 TongTien = TongTien + Convert.ToInt32(textBox_Gia.Text);
                 label_ValueTongTien.Text = TongTien.ToString();
+                UpdateNewTongTien();
             }
         }
         private void button_NextAll_Click(object sender, EventArgs e)
@@ -105,6 +109,7 @@ namespace QuanLyTiemCatTocTamMap
                     listBox_DanhSachDaChon.Items.Add(listBox_DanhSachDichVu.Items[i]);
                     TongTien = Convert.ToInt32(AllTongGiaTienDichVu()) + Convert.ToInt32(GiaTienKieuToc(comboBox_KieuTocYeuThich.Text));
                     label_ValueTongTien.Text = AllTongGiaTienDichVu();
+                    UpdateNewTongTien();
                 }
             }
         }
@@ -115,6 +120,7 @@ namespace QuanLyTiemCatTocTamMap
                 listBox_DanhSachDaChon.Items.Remove(listBox_DanhSachDaChon.SelectedItem);
                 TongTien = TongTien - Convert.ToInt32(textBox_Gia.Text);
                 label_ValueTongTien.Text = TongTien.ToString();
+                UpdateNewTongTien();
             }
             else
             {
@@ -126,6 +132,7 @@ namespace QuanLyTiemCatTocTamMap
             listBox_DanhSachDaChon.Items.Clear();
             TongTien = 0 + Convert.ToInt32(GiaTienKieuToc(comboBox_KieuTocYeuThich.Text));
             label_ValueTongTien.Text = TongTien.ToString();
+            UpdateNewTongTien();
         }
         private void button_TinhTien_Click(object sender, EventArgs e)
         {
@@ -139,6 +146,7 @@ namespace QuanLyTiemCatTocTamMap
             }
             else
             {
+                TaoLichSuGiaoDich(textBox_TaiKhoan.Text, label_ValueTongTien.Text);
                 label_Loi.Text = "Tính tiền thành công";
             }
         }
@@ -181,6 +189,52 @@ namespace QuanLyTiemCatTocTamMap
         {
             TongTien = TongTien + Convert.ToInt32(GiaTienKieuToc(comboBox_KieuTocYeuThich.Text));
             label_ValueTongTien.Text = TongTien.ToString();
+            UpdateNewTongTien();
+        }
+
+        public void LoadUuDai()
+        {
+            DataTable data = TinhTien_DAO.Instance.VIEWDanhSachUuDaiTinhTien();
+            for (int i = 0; i < data.Rows.Count; i++)
+            {
+                comboBox_UuDai.Items.Add(data.Rows[i][0].ToString());
+            }
+        }
+        public void VIEWDanhSachUuDaiTinhTien()
+        {
+            TinhTien_DAO.Instance.VIEWDanhSachUuDaiTinhTien();
+        }
+        public string PhanTramGiamUuDai(string TenUuDai)
+        {
+            if (comboBox_UuDai.Text != "")
+            {
+                return TinhTien_DAO.Instance.PhanTramGiamUuDai(TenUuDai).ToString();
+            }
+            return "0";
+        }
+
+        private void comboBox_UuDai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateNewTongTien();
+        }
+        public void UpdateNewTongTien()
+        {
+            if (comboBox_UuDai.Text != "")
+            {
+                NewTongTien = 0;
+            }
+            else
+            {
+                NewTongTien = Convert.ToInt32(label_ValueTongTien.Text);
+            }
+            GiamGia = Convert.ToInt32(PhanTramGiamUuDai(comboBox_UuDai.Text));
+            NewTongTien = TongTien - (TongTien / 100 * GiamGia);
+            label_ValueTongTien.Text = NewTongTien.ToString();
+        }
+
+        public void TaoLichSuGiaoDich(string Ten, string TongTien)
+        {
+            TinhTien_DAO.Instance.TaoLichSuGiaoDich(Ten, TongTien);
         }
     }
 }

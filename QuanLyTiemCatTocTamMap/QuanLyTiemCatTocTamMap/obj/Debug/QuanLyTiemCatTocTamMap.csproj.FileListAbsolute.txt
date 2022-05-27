@@ -26,3 +26,5 @@ D:\TamMap\QuanLyTiemCatTocTamMap\QuanLyTiemCatTocTamMap\obj\Debug\QuanLyTiemCatT
 D:\TamMap\QuanLyTiemCatTocTamMap\QuanLyTiemCatTocTamMap\obj\Debug\QuanLyTiemCatTocTamMap.form_TaoDichVu.resources
 D:\TamMap\QuanLyTiemCatTocTamMap\QuanLyTiemCatTocTamMap\obj\Debug\QuanLyTiemCatTocTamMap.form_TinhTien.resources
 D:\TamMap\QuanLyTiemCatTocTamMap\QuanLyTiemCatTocTamMap\obj\Debug\QuanLyTiemCatTocTamMap.form_CaiDat.resources
+D:\TamMap\QuanLyTiemCatTocTamMap\QuanLyTiemCatTocTamMap\obj\Debug\QuanLyTiemCatTocTamMap.form_LichSuGiaoDich.resources
+D:\TamMap\QuanLyTiemCatTocTamMap\QuanLyTiemCatTocTamMap\obj\Debug\QuanLyTiemCatTocTamMap.form_DoanhThu.resources

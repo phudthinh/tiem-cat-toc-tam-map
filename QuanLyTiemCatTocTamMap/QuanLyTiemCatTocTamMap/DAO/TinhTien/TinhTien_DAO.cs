@@ -55,5 +55,20 @@ namespace QuanLyTiemCatTocTamMap
             string query = "GiaTienKieuToc @TenKieuToc";
             return (int)DataProvider.Instance.ExecuteScalar(query, new object[] { TenKieuToc });
         }
+        public DataTable VIEWDanhSachUuDaiTinhTien()
+        {
+            string query = "SELECT * FROM VIEWDanhSachUuDaiTinhTien";
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+        public int PhanTramGiamUuDai(string TenUuDai)
+        {
+            string query = "PhanTramGiamUuDai @TenUuDai";
+            return (int)DataProvider.Instance.ExecuteScalar(query, new object[] { TenUuDai });
+        }
+        public void TaoLichSuGiaoDich(string Ten, string TongTien)
+        {
+            string query = "TaoLichSuGiaoDich @Ten , @TongTien";
+            DataProvider.Instance.ExecuteScalar(query, new object[] { Ten , TongTien });
+        }
     }
 }

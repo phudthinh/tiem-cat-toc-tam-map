@@ -337,6 +337,31 @@ END
 
 -- EXEC GiaTienDichVu N'Gội đầu'
 
+-- View Danh sách ưu đãi tính tiền
+CREATE VIEW VIEWDanhSachUuDaiTinhTien
+AS
+SELECT
+	TenUuDai
+FROM
+	UuDai
+GO
+SELECT * FROM VIEWDanhSachUuDaiTinhTien
+
+-- View Danh sách dịch vụ giá tièn
+CREATE PROC PhanTramGiamUuDai
+@TenUuDai NVARCHAR(50)
+AS
+BEGIN
+SELECT
+	PhanTramGiam
+FROM
+	UuDai
+WHERE
+	UuDai.TenUuDai = @TenUuDai
+END
+
+-- EXEC PhanTramGiamUuDai N'ud3'
+
 GO
 
 CREATE PROC AllTongGiaTienDichVu
@@ -366,6 +391,43 @@ WHERE
 END
 
 -- EXEC GiaTienKieuToc N'Đầu cắt moi'
+
+-- Tạo lịch sử giao dịch
+CREATE PROC TaoLichSuGiaoDich
+@Ten NVARCHAR(50),
+@TongSoTienThanhToan INT
+AS
+BEGIN
+INSERT INTO LichSuGiaoDich
+(Ten, NgayThanhToan, TongSoTienThanhToan)
+VALUES
+(@Ten, GETDATE(), @TongSoTienThanhToan)
+END
+-- EXEC TaoLichSuGiaoDich N'Tâm râu' , 100000
+GO
+
+-- View Danh sách lịch sử giao dịch
+CREATE VIEW VIEWDanhSachLichSuGiaoDich
+AS
+SELECT
+	MaLSGD AS N'Mã LSGD',
+	Ten AS N'Tên khách hàng',
+	NgayThanhToan AS N'Ngày thanh toán',
+	TongSoTienThanhToan AS N'Tổng tiền'
+FROM	
+	LichSuGiaoDich
+GO
+SELECT * FROM VIEWDanhSachLichSuGiaoDich
+
+-- Get tổng doanh thu
+CREATE VIEW GetTongDoanhThu
+AS
+SELECT
+	SUM(TongSoTienThanhToan) AS N'Tổng tiền'
+FROM	
+	LichSuGiaoDich
+GO
+SELECT * FROM GetTongDoanhThu
 
 -- Get Tên người dùng Thông
 CREATE PROC GetTenNguoiDung

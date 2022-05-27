@@ -79,5 +79,15 @@ namespace QuanLyTiemCatTocTamMap
         {
             OpenChildForm(new form_CaiDat(tk));
         }
+
+        private void menuItem_LichSuGiaoDich_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new form_LichSuGiaoDich());
+        }
+
+        private void menuItem_DoanhThu_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new form_DoanhThu());
+        }
     }
 }

@@ -51,6 +51,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label_KieuTocYeuThich = new System.Windows.Forms.Label();
             this.comboBox_KieuTocYeuThich = new System.Windows.Forms.ComboBox();
+            this.label_UuDai = new System.Windows.Forms.Label();
+            this.comboBox_UuDai = new System.Windows.Forms.ComboBox();
             this.panel_Bottom.SuspendLayout();
             this.panel_Menu.SuspendLayout();
             this.SuspendLayout();
@@ -102,6 +104,8 @@
             // 
             // panel_Menu
             // 
+            this.panel_Menu.Controls.Add(this.label_UuDai);
+            this.panel_Menu.Controls.Add(this.comboBox_UuDai);
             this.panel_Menu.Controls.Add(this.textBox_Gia);
             this.panel_Menu.Controls.Add(this.label_Gia);
             this.panel_Menu.Controls.Add(this.textBox_TenDichVuDuocChon);
@@ -312,6 +316,26 @@
             this.comboBox_KieuTocYeuThich.TabIndex = 18;
             this.comboBox_KieuTocYeuThich.SelectedIndexChanged += new System.EventHandler(this.comboBox_KieuTocYeuThich_SelectedIndexChanged);
             // 
+            // label_UuDai
+            // 
+            this.label_UuDai.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_UuDai.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label_UuDai.Location = new System.Drawing.Point(425, 41);
+            this.label_UuDai.Name = "label_UuDai";
+            this.label_UuDai.Size = new System.Drawing.Size(100, 15);
+            this.label_UuDai.TabIndex = 37;
+            this.label_UuDai.Text = "Ưu đãi";
+            this.label_UuDai.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // comboBox_UuDai
+            // 
+            this.comboBox_UuDai.FormattingEnabled = true;
+            this.comboBox_UuDai.Location = new System.Drawing.Point(423, 59);
+            this.comboBox_UuDai.Name = "comboBox_UuDai";
+            this.comboBox_UuDai.Size = new System.Drawing.Size(365, 21);
+            this.comboBox_UuDai.TabIndex = 36;
+            this.comboBox_UuDai.SelectedIndexChanged += new System.EventHandler(this.comboBox_UuDai_SelectedIndexChanged);
+            // 
             // form_TinhTien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -354,5 +378,7 @@
         private System.Windows.Forms.TextBox textBox_TenDichVuDuocChon;
         private System.Windows.Forms.Label label_TenDichVuDuocChon;
         private System.Windows.Forms.Label label_Loi;
+        private System.Windows.Forms.Label label_UuDai;
+        private System.Windows.Forms.ComboBox comboBox_UuDai;
     }
 }

@@ -158,6 +158,19 @@
     <Compile Include="Form\TinhTien\form_TinhTien.Designer.cs">
       <DependentUpon>form_TinhTien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\LichSuGiaoDich\form_LichSuGiaoDich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\LichSuGiaoDich\form_LichSuGiaoDich.Designer.cs">
+      <DependentUpon>form_LichSuGiaoDich.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\LichSuGiaoDich\LichSuGiaoDich_DAO.cs" />
+    <Compile Include="Form\DoanhThu\form_DoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\DoanhThu\form_DoanhThu.Designer.cs">
+      <DependentUpon>form_DoanhThu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DAO\QuanLy\QuanLyTaiKhoan_DAO.cs" />
@@ -173,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\DangNhap\form_DangNhap.resx">
       <DependentUpon>form_DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\LichSuGiaoDich\form_LichSuGiaoDich.resx">
+      <DependentUpon>form_LichSuGiaoDich.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\QuanLyDichVu\form_ChinhSuaDichVu.resx">
       <DependentUpon>form_ChinhSuaDichVu.cs</DependentUpon>
@@ -218,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\TroGiup\form_TroGiup.resx">
       <DependentUpon>form_TroGiup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\DoanhThu\form_DoanhThu.resx">
+      <DependentUpon>form_DoanhThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -114,12 +114,14 @@
             this.menuItem_DoanhThu.Name = "menuItem_DoanhThu";
             this.menuItem_DoanhThu.Size = new System.Drawing.Size(75, 20);
             this.menuItem_DoanhThu.Text = "Doanh thu";
+            this.menuItem_DoanhThu.Click += new System.EventHandler(this.menuItem_DoanhThu_Click);
             // 
             // menuItem_LichSuGiaoDich
             // 
             this.menuItem_LichSuGiaoDich.Name = "menuItem_LichSuGiaoDich";
             this.menuItem_LichSuGiaoDich.Size = new System.Drawing.Size(108, 20);
             this.menuItem_LichSuGiaoDich.Text = "Lịch sử giao dịch";
+            this.menuItem_LichSuGiaoDich.Click += new System.EventHandler(this.menuItem_LichSuGiaoDich_Click);
             // 
             // menuItem_TroGiup
             // 
@@ -141,21 +143,21 @@
             // thôngTinToolStripMenuItem
             // 
             this.thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
-            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.thôngTinToolStripMenuItem.Text = "Thông tin";
             this.thôngTinToolStripMenuItem.Click += new System.EventHandler(this.thôngTinToolStripMenuItem_Click);
             // 
             // miniMenuItem_CaiDat
             // 
             this.miniMenuItem_CaiDat.Name = "miniMenuItem_CaiDat";
-            this.miniMenuItem_CaiDat.Size = new System.Drawing.Size(180, 22);
+            this.miniMenuItem_CaiDat.Size = new System.Drawing.Size(128, 22);
             this.miniMenuItem_CaiDat.Text = "Cài đặt";
             this.miniMenuItem_CaiDat.Click += new System.EventHandler(this.miniMenuItem_CaiDat_Click);
             // 
             // miniMenuItem_DangXuat
             // 
             this.miniMenuItem_DangXuat.Name = "miniMenuItem_DangXuat";
-            this.miniMenuItem_DangXuat.Size = new System.Drawing.Size(180, 22);
+            this.miniMenuItem_DangXuat.Size = new System.Drawing.Size(128, 22);
             this.miniMenuItem_DangXuat.Text = "Đăng xuất";
             this.miniMenuItem_DangXuat.Click += new System.EventHandler(this.miniMenuItem_DangXuat_Click);
             // 
