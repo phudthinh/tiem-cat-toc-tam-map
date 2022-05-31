@@ -78,7 +78,7 @@ WHERE
 	NguoiDung.MK = @MK AND
 	NguoiDung.Loai = 0
 END
-
+GO
 -- EXEC DangNhap N'ad' , N'1'
 GO
 
@@ -110,6 +110,7 @@ INSERT INTO NguoiDung
 VALUES
 (@TK, N'1', @Ten, @KieuTocYeuThich, @GhiChu, 0, 0, 1)
 END
+GO
 -- EXEC TaoTaiKhoanNguoiDung N'nd1' , N'Tâm gầy' , N'' , N''
 -- EXEC TaoTaiKhoanNguoiDung N'nd2' , N'Tâm béo' , N'' , N''
 -- EXEC TaoTaiKhoanNguoiDung N'nd3' , N'Tâm Loli' , N'' , N''
@@ -125,6 +126,7 @@ AS
 BEGIN
 UPDATE NguoiDung SET Ten = @Ten , KieuTocYeuThich = @KieuTocYeuThich, GhiChu = @GhiChu WHERE TK = @TK
 END
+GO
 -- EXEC ChinhSuaTaiKhoanNguoiDung N'ad' , N'Tâm mập' , N'' , N''
 GO
 
@@ -135,6 +137,7 @@ AS
 BEGIN
 DELETE FROM NguoiDung WHERE TK = @TK
 END
+GO
 -- EXEC XoaTaiKhoanNguoiDung N'nd1' , N'Tâm gầy' , N'' , N''
 GO
 
@@ -179,6 +182,7 @@ INSERT INTO UuDai
 VALUES
 (@TenUuDai, @PhanTramGiam)
 END
+GO
 -- EXEC TaoUuDai N'Đầu Goku' , 5
 GO
 
@@ -191,6 +195,7 @@ AS
 BEGIN
 UPDATE UuDai SET TenUuDai = @TenUuDai , PhanTramGiam = @PhanTramGiam WHERE MaUuDai = @MaUuDai
 END
+GO
 -- EXEC ChinhSuaTaiKhoanNguoiDung N'2' , 8, 1
 GO
 
@@ -201,6 +206,7 @@ AS
 BEGIN
 DELETE FROM UuDai WHERE MaUuDai = @MaUuDai
 END
+GO
 -- EXEC XoaUuDai N'1'
 GO
 
@@ -228,6 +234,7 @@ INSERT INTO KieuToc
 VALUES
 (@TenKieuToc, @GiaTien)
 END
+GO
 -- EXEC TaoKieuToc N'Đầu Goku' , 100000
 GO
 
@@ -240,6 +247,7 @@ AS
 BEGIN
 UPDATE KieuToc SET TenKieuToc = @TenKieuToc, GiaTien = @GiaTien WHERE MaKieuToc = @MaKieuToc
 END
+GO
 -- EXEC ChinhSuaKieuToc N'Đầu Goku' , 90000, 1
 GO
 
@@ -250,6 +258,7 @@ AS
 BEGIN
 DELETE FROM KieuToc WHERE MaKieuToc = @MaKieuToc
 END
+GO
 -- EXEC XoaKieuToc N'1'
 GO
 
@@ -277,6 +286,7 @@ INSERT INTO DichVu
 VALUES
 (@TenDichVu, @GiaTien)
 END
+GO
 -- EXEC TaoDichVu N'Gội đầu' , 100000
 GO
 
@@ -289,6 +299,7 @@ AS
 BEGIN
 UPDATE DichVu SET TenDichVu = @TenDichVu, GiaTien = @GiaTien WHERE MaDichVu = @MaDichVu
 END
+GO
 -- EXEC ChinhSuaKieuToc 1, N'Đầu Goku' , 90000
 GO
 
@@ -299,6 +310,7 @@ AS
 BEGIN
 DELETE FROM DichVu WHERE MaDichVu = @MaDichVu
 END
+GO
 -- EXEC XoaDichVu N'1'
 GO
 
@@ -311,6 +323,7 @@ FROM
 	KieuToc
 GO
 SELECT * FROM VIEWDanhSachKieuTocTinhTien
+GO
 
 -- View Danh sách dịch vụ tính tiền
 CREATE VIEW VIEWDanhSachDichVuTinhTien
@@ -321,6 +334,7 @@ FROM
 	DichVu
 GO
 SELECT * FROM VIEWDanhSachDichVuTinhTien
+GO
 
 -- View Danh sách dịch vụ giá tièn
 CREATE PROC GiaTienDichVu
@@ -334,8 +348,9 @@ FROM
 WHERE
 	DichVu.TenDichVu = @TenDichVu
 END
-
+GO
 -- EXEC GiaTienDichVu N'Gội đầu'
+GO
 
 -- View Danh sách ưu đãi tính tiền
 CREATE VIEW VIEWDanhSachUuDaiTinhTien
@@ -346,6 +361,7 @@ FROM
 	UuDai
 GO
 SELECT * FROM VIEWDanhSachUuDaiTinhTien
+GO
 
 -- View Danh sách dịch vụ giá tièn
 CREATE PROC PhanTramGiamUuDai
@@ -359,9 +375,8 @@ FROM
 WHERE
 	UuDai.TenUuDai = @TenUuDai
 END
-
+GO
 -- EXEC PhanTramGiamUuDai N'ud3'
-
 GO
 
 CREATE PROC AllTongGiaTienDichVu
@@ -372,9 +387,8 @@ SELECT
 FROM
 	DichVu
 END
-
+GO
 -- EXEC AllTongGiaTienDichVu
-
 GO
 
 -- View Danh sách kiểu tóc giá tièn
@@ -389,8 +403,9 @@ FROM
 WHERE
 	KieuToc.TenKieuToc = @TenKieuToc
 END
-
+GO
 -- EXEC GiaTienKieuToc N'Đầu cắt moi'
+GO
 
 -- Tạo lịch sử giao dịch
 CREATE PROC TaoLichSuGiaoDich
@@ -403,6 +418,7 @@ INSERT INTO LichSuGiaoDich
 VALUES
 (@Ten, GETDATE(), @TongSoTienThanhToan)
 END
+GO
 -- EXEC TaoLichSuGiaoDich N'Tâm râu' , 100000
 GO
 
@@ -418,6 +434,7 @@ FROM
 	LichSuGiaoDich
 GO
 SELECT * FROM VIEWDanhSachLichSuGiaoDich
+GO
 
 -- Get tổng doanh thu
 CREATE VIEW GetTongDoanhThu
@@ -428,6 +445,7 @@ FROM
 	LichSuGiaoDich
 GO
 SELECT * FROM GetTongDoanhThu
+GO
 
 -- Get Tên người dùng Thông
 CREATE PROC GetTenNguoiDung
@@ -441,6 +459,7 @@ FROM
 WHERE
 	TK = @TK
 END
+GO
 -- EXEC GetTenNguoiDung N'ad'
 GO
 
@@ -458,8 +477,7 @@ WHERE
 	NguoiDung.TK = @TK AND NguoiDung.MK = @MK
 END
 GO
-
-EXEC KiemTraMatKhauTrung N'ad', N'1'
+--EXEC KiemTraMatKhauTrung N'ad', N'1'
 GO
 
 -- Chỉnh sửa mật khẩu tài khoản người dùng
@@ -470,5 +488,6 @@ AS
 BEGIN
 UPDATE NguoiDung SET MK = @MK WHERE TK = @TK
 END
+GO
 -- EXEC ChinhSuaMatKhauTaiKhoanNguoiDung N'ad' , N'2'
 GO
